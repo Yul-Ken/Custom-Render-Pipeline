@@ -28,6 +28,7 @@ public class CameraRenderer
         new ShaderTagId("VertexLMRGBM"),
         new ShaderTagId("VertexLM")
     };
+    static Material errorMaterial;
 
     /// <summary>
     /// Render content in a camera view
@@ -59,7 +60,16 @@ public class CameraRenderer
 
     private void DrawUnsupportedShaders()
     {
-        var drawSettings = new DrawingSettings(legacyShaderTagIds[0], new SortingSettings(camera));
+        if(errorMaterial==null)
+        {
+            errorMaterial = new Material(Shader.Find("Hidden/InternalErrorShader"));
+        }
+
+
+        var drawSettings = new DrawingSettings(legacyShaderTagIds[0], new SortingSettings(camera))
+        {
+            overrideMaterial = errorMaterial
+        };
 
         for (int i = 1; i < legacyShaderTagIds.Length; i++)
         {
