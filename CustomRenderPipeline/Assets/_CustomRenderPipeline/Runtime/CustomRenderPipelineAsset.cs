@@ -9,6 +9,5 @@ public class CustomRenderPipelineAsset : RenderPipelineAsset
     protected override RenderPipeline CreatePipeline()
     {
         return new CustomRenderPipeline();
-
     }
 }

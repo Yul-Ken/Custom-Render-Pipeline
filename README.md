@@ -8,7 +8,6 @@ A study in new Universe Render in latest Unity Engine.
 - **Replace default renderer:** *project setup, render pipeline asset, render pipeline* 
 
 ###  Renderer
-
 - **Skybox:** *camera renderer, static view of skybox* 
 - **VP Matrix:** *aligned skybox* 
 - **Clear Target:** *command buffer, buffer sample, color+Z+stencil clear* 
@@ -16,7 +15,9 @@ A study in new Universe Render in latest Unity Engine.
 - **Draw Transparent Geo:** *opaque,transparent* 
 
 ###  Editor Renderering
-
 - **Legacy Shader:** *multiple passes* 
 - **Error Material:** *assign override material in drawingsetting* 
+- **Refactor Editor Class:** *partial class* 
+- **Scene Window:** *Camera Gizmos, UI Elements* 
+
 

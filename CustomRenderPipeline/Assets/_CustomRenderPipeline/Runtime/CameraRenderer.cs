@@ -32,6 +32,7 @@ public partial class CameraRenderer
         this.context = context;
         this.camera = camera;
 
+        PrepareForSceneWindow();
 
         if (!Cull())
         {
@@ -45,10 +46,8 @@ public partial class CameraRenderer
         //context are buffered (not draw before submitting)
         DrawVisibleGeometry();
         //Draw Unsupported Meshes
-
-#if UNITY_EDITOR
         DrawUnsupportedShaders();
-#endif
+        DrawGizmos();
 
         Submit();
     }
