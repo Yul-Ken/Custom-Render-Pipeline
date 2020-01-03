@@ -19,11 +19,20 @@ public class CameraRenderer
         this.context = context;
         this.camera = camera;
 
+        //---- Setup Camera Properties
+        Setup();
+
         //---- render job ----
 
         //context are buffered (not draw before submitting)
         DrawVisibleGeometry();
         Submit();
+    }
+
+
+    private void Setup()
+    {
+        context.SetupCameraProperties(camera);
     }
 
 

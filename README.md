@@ -10,3 +10,4 @@ A study in new Universe Render in latest Unity Engine.
 ###  Renderer
 
 - **Skybox:** *camera renderer, static view of skybox* 
+- **VP Matrix:** *aligned skybox * 
