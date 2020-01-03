@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEditor;
+using UnityEngine.Profiling;
 
 public partial class CameraRenderer
 {
@@ -12,7 +13,12 @@ public partial class CameraRenderer
 
     partial void PrepareForSceneWindow (); //add the UI to the world geometry when rendering for the scene window
 
+    partial void PrepareBuffer();  // if not,  end up with a single Render Camera scope.
+
+
 #if UNITY_EDITOR
+
+    string SampleName { get; set; }
 
     static Material errorMaterial;
 
@@ -62,5 +68,14 @@ public partial class CameraRenderer
             ScriptableRenderContext.EmitWorldGeometryForSceneView(camera);
         }
     }
+
+    partial void PrepareBuffer()
+    {
+        Profiler.BeginSample("Editor Only");
+        buffer.name =SampleName= camera.name;
+        Profiler.EndSample();
+    }
+#else
+    string SampleName => bufferName;
 #endif
 }
