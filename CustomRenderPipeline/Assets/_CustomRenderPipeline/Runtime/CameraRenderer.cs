@@ -9,6 +9,15 @@ public class CameraRenderer
 
     Camera camera;
 
+    //some commands have to be issued indirectly, via a separate command buffer
+    const string bufferName = "Render Camera";
+
+    CommandBuffer buffer = new CommandBuffer
+    {
+        name = bufferName
+    };
+
+
     /// <summary>
     /// Render content in a camera view
     /// </summary>
@@ -33,6 +42,17 @@ public class CameraRenderer
     private void Setup()
     {
         context.SetupCameraProperties(camera);
+        buffer.ClearRenderTarget(true, true, Color.clear);
+        buffer.BeginSample(bufferName);
+        ExecuteBuffer();
+        
+    }
+
+    void Submit()
+    {
+        buffer.EndSample(bufferName);
+        ExecuteBuffer();
+        context.Submit();
     }
 
 
@@ -41,8 +61,9 @@ public class CameraRenderer
         context.DrawSkybox(camera);
     }
 
-    void Submit()
+    void ExecuteBuffer()
     {
-        context.Submit();
+        context.ExecuteCommandBuffer(buffer);
+        buffer.Clear();
     }
 }
