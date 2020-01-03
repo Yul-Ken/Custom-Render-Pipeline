@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 
-public class CameraRenderer
+public partial class CameraRenderer
 {
     ScriptableRenderContext context;
 
@@ -20,15 +20,7 @@ public class CameraRenderer
 
     static ShaderTagId unlitShaderTagId = new ShaderTagId("SRPDefaultUnlit");
 
-    static ShaderTagId[] legacyShaderTagIds = {
-        new ShaderTagId("Always"),
-        new ShaderTagId("ForwardBase"),
-        new ShaderTagId("PrepassBase"),
-        new ShaderTagId("Vertex"),
-        new ShaderTagId("VertexLMRGBM"),
-        new ShaderTagId("VertexLM")
-    };
-    static Material errorMaterial;
+  
 
     /// <summary>
     /// Render content in a camera view
@@ -53,32 +45,15 @@ public class CameraRenderer
         //context are buffered (not draw before submitting)
         DrawVisibleGeometry();
         //Draw Unsupported Meshes
+
+#if UNITY_EDITOR
         DrawUnsupportedShaders();
+#endif
 
         Submit();
     }
 
-    private void DrawUnsupportedShaders()
-    {
-        if(errorMaterial==null)
-        {
-            errorMaterial = new Material(Shader.Find("Hidden/InternalErrorShader"));
-        }
-
-
-        var drawSettings = new DrawingSettings(legacyShaderTagIds[0], new SortingSettings(camera))
-        {
-            overrideMaterial = errorMaterial
-        };
-
-        for (int i = 1; i < legacyShaderTagIds.Length; i++)
-        {
-            drawSettings.SetShaderPassName(i, legacyShaderTagIds[i]);
-        }
-        var filteringSettings = FilteringSettings.defaultValue;
-        context.DrawRenderers(cullingResults, ref drawSettings, ref filteringSettings); 
-    }
-
+   
     private void Setup()
     {
         context.SetupCameraProperties(camera);
