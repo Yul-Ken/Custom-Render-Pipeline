@@ -3,5 +3,10 @@ A study in new Universe Render in latest Unity Engine.
 
 
 ## Updates
+
 ###  New Render Pipeline
-- *project setup, render pipeline asset, render pipeline* 
+- **Replace default renderer:** *project setup, render pipeline asset, render pipeline* 
+
+###  Renderer
+
+- **Skybox:** *camera renderer, static view of skybox* 
