@@ -13,3 +13,4 @@ A study in new Universe Render in latest Unity Engine.
 - **VP Matrix:** *aligned skybox* 
 - **Clear Target:** *command buffer, buffer sample, color+Z+stencil clear* 
 - **Draw Geometry:** *Culling, Sorting, Flitting(Not Correct), Drawing Settings(Shader Id)* 
+- **Draw Transparent Geo:** *Opaque,Transparent* 
