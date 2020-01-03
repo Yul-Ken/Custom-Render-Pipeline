@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
@@ -19,6 +20,14 @@ public class CameraRenderer
 
     static ShaderTagId unlitShaderTagId = new ShaderTagId("SRPDefaultUnlit");
 
+    static ShaderTagId[] legacyShaderTagIds = {
+        new ShaderTagId("Always"),
+        new ShaderTagId("ForwardBase"),
+        new ShaderTagId("PrepassBase"),
+        new ShaderTagId("Vertex"),
+        new ShaderTagId("VertexLMRGBM"),
+        new ShaderTagId("VertexLM")
+    };
 
     /// <summary>
     /// Render content in a camera view
@@ -42,9 +51,23 @@ public class CameraRenderer
         //---- render job ----
         //context are buffered (not draw before submitting)
         DrawVisibleGeometry();
+        //Draw Unsupported Meshes
+        DrawUnsupportedShaders();
+
         Submit();
     }
 
+    private void DrawUnsupportedShaders()
+    {
+        var drawSettings = new DrawingSettings(legacyShaderTagIds[0], new SortingSettings(camera));
+
+        for (int i = 1; i < legacyShaderTagIds.Length; i++)
+        {
+            drawSettings.SetShaderPassName(i, legacyShaderTagIds[i]);
+        }
+        var filteringSettings = FilteringSettings.defaultValue;
+        context.DrawRenderers(cullingResults, ref drawSettings, ref filteringSettings); 
+    }
 
     private void Setup()
     {
@@ -79,9 +102,7 @@ public class CameraRenderer
         drawingSettings.sortingSettings = sortingSettings;
         filteringSettings.renderQueueRange = RenderQueueRange.transparent;
 
-        context.DrawRenderers(
-            cullingResults, ref drawingSettings, ref filteringSettings
-        );
+        context.DrawRenderers(cullingResults, ref drawingSettings, ref filteringSettings);
 
     }
 
