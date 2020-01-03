@@ -12,3 +12,4 @@ A study in new Universe Render in latest Unity Engine.
 - **Skybox:** *camera renderer, static view of skybox* 
 - **VP Matrix:** *aligned skybox* 
 - **Clear Target:** *command buffer, buffer sample, color+Z+stencil clear* 
+- **Draw Geometry:** *Culling, Sorting, Flitting(Not Correct), Drawing Settings(Shader Id)* 

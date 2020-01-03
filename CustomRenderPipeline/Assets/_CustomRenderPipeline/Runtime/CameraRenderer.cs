@@ -17,6 +17,8 @@ public class CameraRenderer
         name = bufferName
     };
 
+    static ShaderTagId unlitShaderTagId = new ShaderTagId("SRPDefaultUnlit");
+
 
     /// <summary>
     /// Render content in a camera view
@@ -28,11 +30,16 @@ public class CameraRenderer
         this.context = context;
         this.camera = camera;
 
+
+        if (!Cull())
+        {
+            return;
+        }
+
         //---- Setup Camera Properties
         Setup();
 
         //---- render job ----
-
         //context are buffered (not draw before submitting)
         DrawVisibleGeometry();
         Submit();
@@ -58,6 +65,12 @@ public class CameraRenderer
 
     private void DrawVisibleGeometry()
     {
+        var sortingSettings = new SortingSettings(camera) { criteria = SortingCriteria.CommonOpaque };  //var sortingSettings = new SortingSettings(camera);
+        var drawingSettings = new DrawingSettings(unlitShaderTagId, sortingSettings);
+        var filteringSettings = new FilteringSettings(RenderQueueRange.all);
+
+        context.DrawRenderers(cullingResults, ref drawingSettings, ref filteringSettings);
+
         context.DrawSkybox(camera);
     }
 
@@ -65,5 +78,16 @@ public class CameraRenderer
     {
         context.ExecuteCommandBuffer(buffer);
         buffer.Clear();
+    }
+
+    CullingResults cullingResults;
+    private bool Cull()
+    {
+        if (camera.TryGetCullingParameters(out ScriptableCullingParameters p))
+        {
+            cullingResults = context.Cull(ref p);
+            return true;
+        }
+        return false;
     }
 }
