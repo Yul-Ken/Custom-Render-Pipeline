@@ -57,7 +57,13 @@ public partial class CameraRenderer
     private void Setup()
     {
         context.SetupCameraProperties(camera);
-        buffer.ClearRenderTarget(true, true, Color.clear);
+        var flags = camera.clearFlags;
+        // the skybox would be drawn at the beginning
+        buffer.ClearRenderTarget(
+            flags<=CameraClearFlags.Depth, // if nothing =>  not clear
+            flags == CameraClearFlags.Color,  // if it is color =>  clear with color
+            flags == CameraClearFlags.Color ?camera.backgroundColor.linear : Color.clear // transparent or color
+            );
         buffer.BeginSample(SampleName);
         ExecuteBuffer();
         

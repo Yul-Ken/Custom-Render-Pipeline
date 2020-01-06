@@ -4,6 +4,8 @@ A study in new Universe Render in latest Unity Engine.
 
 ## Updates
 
+---
+
 ###  New Render Pipeline
 - **Replace default renderer:** *project setup, render pipeline asset, render pipeline* 
 
@@ -18,7 +20,8 @@ A study in new Universe Render in latest Unity Engine.
 - **Legacy Shader:** *multiple passes* 
 - **Error Material:** *assign override material in drawingsetting* 
 - **Refactor Editor Class:** *partial class* 
-- **Scene Window:** *Camera Gizmos, UI Elements* 
-- **Multiple Cameras:** *Camera Buffers, Profiling* 
+- **Scene Window:** *camera gizmos, UI elements* 
+- **Multiple Cameras:** *camera buffers, profiling* 
+- **Camera Layers & Clear Flags:** *clear flags* 
 
-
+---
