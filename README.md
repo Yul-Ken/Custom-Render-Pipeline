@@ -25,3 +25,7 @@ A study in new Universe Render in latest Unity Engine.
 - **Camera Layers & Clear Flags:** *clear flags* 
 
 ---
+
+###  Shader
+- **Setup HLSL Shader System:** *include flies* 
+- **Space Transform:** *unity_ObjectToWorld, unity_MatrixVP* 
