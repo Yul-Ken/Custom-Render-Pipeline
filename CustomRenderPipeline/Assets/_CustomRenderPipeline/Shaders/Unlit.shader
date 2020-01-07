@@ -1,6 +1,8 @@
 ﻿Shader "CRP/Unlit"
 {
-   Properties{}
+   Properties{
+    _BaseColor("Color", Color) = (1.0, 1.0, 1.0, 1.0)
+   }
 
    SubShader{
    
@@ -10,8 +12,7 @@
             #pragma fragment UnlitPassFragment
             #include "UnlitPass.hlsl"
             ENDHLSL
-   
-   }
+        }
    
    }
 }
