@@ -32,3 +32,4 @@ A study in new Universe Render in latest Unity Engine.
 - **Integrate Core Library:** *Packages/com.unity.render-pipelines.core* 
 - **Color Property:** *shader variables* 
 - **SRP Batches:** *CBUFFER_START* 
+- **PerObject Color:** *different memory layout* 
