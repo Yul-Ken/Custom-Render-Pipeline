@@ -31,5 +31,8 @@ A study in new Universe Render in latest Unity Engine.
 - **Space Transform:** *unity_ObjectToWorld, unity_MatrixVP* 
 - **Integrate Core Library:** *Packages/com.unity.render-pipelines.core* 
 - **Color Property:** *shader variables* 
+
+### Batches
 - **SRP Batches:** *CBUFFER_START* 
 - **PerObject Color:** *different memory layout* 
+- **Combine Objects** *GPU Instances, shader struct* 
