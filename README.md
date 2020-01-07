@@ -29,3 +29,4 @@ A study in new Universe Render in latest Unity Engine.
 ###  Shader
 - **Setup HLSL Shader System:** *include flies* 
 - **Space Transform:** *unity_ObjectToWorld, unity_MatrixVP* 
+- **Integrate Core Library:** *Packages/com.unity.render-pipelines.core* 
