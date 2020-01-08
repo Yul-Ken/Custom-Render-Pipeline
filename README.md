@@ -44,5 +44,6 @@ A study in new Universe Render in latest Unity Engine.
 ### Blend
 - **Blend Modes:** *Blend Tag Pass* 
 - **Cutoff:** *Cutoff，Clip* 
+- **Group Instances:** *Group Demo* 
 
 
