@@ -39,3 +39,9 @@ A study in new Universe Render in latest Unity Engine.
 - **Instanced Meshes** *Instanced Meshes* 
 - **Configuring Batching**  
 
+---
+
+### Blend
+- **Blend Modes:** *Blend Tag Pass* 
+
+
