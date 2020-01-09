@@ -50,4 +50,6 @@ A study in new Universe Render in latest Unity Engine.
 
 ### Directional Light
 
-- **Lighting:** *surface, normals, lighting * 
+- **Lighting:** *surface, normals, lighting* 
+- **Diffuse:** *diffuse light* 
+

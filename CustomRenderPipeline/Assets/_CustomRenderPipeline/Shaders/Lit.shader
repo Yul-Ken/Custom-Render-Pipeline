@@ -1,4 +1,4 @@
-﻿Shader "CRP/lit"
+﻿Shader "CRP/Lsit"
 {
    Properties{
     _BaseMap("Texture", 2D) = "white" {}

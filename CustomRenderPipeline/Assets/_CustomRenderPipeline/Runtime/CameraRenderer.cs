@@ -21,7 +21,7 @@ public partial class CameraRenderer
     static ShaderTagId unlitShaderTagId = new ShaderTagId("SRPDefaultUnlit");
     static ShaderTagId litShaderTagId = new ShaderTagId("CustomLit");
 
-
+    Lighting lighting = new Lighting();
 
     /// <summary>
     /// Render content in a camera view
@@ -45,6 +45,8 @@ public partial class CameraRenderer
 
         //---- Setup Camera Properties
         Setup();
+
+        lighting.Setup(context);
 
         //---- render job ----
         //context are buffered (not draw before submitting)
