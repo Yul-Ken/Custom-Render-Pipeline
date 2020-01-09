@@ -52,5 +52,8 @@ A study in new Universe Render in latest Unity Engine.
 
 - **Lighting:** *surface, normals, lighting* 
 - **Diffuse:** *diffuse light* 
-- **Multiple Lights:** *light culling, shader loop* 
+- **Multiple Lights:** *light culling, shader loop*
+
+### BRDF
+- **Diffuse BRDF:** *meltalic,smoothness* 
 

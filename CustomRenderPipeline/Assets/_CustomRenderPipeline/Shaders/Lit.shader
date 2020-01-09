@@ -4,6 +4,8 @@
     _BaseMap("Texture", 2D) = "white" {}
     _BaseColor("Color", Color) = (1.0, 1.0, 1.0, 1.0)
     _Cutoff ("Alpha Cutoff", Range(0.0, 1.0)) = 0.5
+    _Metallic ("Metallic", Range(0, 1)) = 0
+    _Smoothness ("Smoothness", Range(0, 1)) = 0.5
    [Enum(UnityEngine.Rendering.BlendMode)] _SrcBlend("Src Blend",float)=1
    [Enum(UnityEngine.Rendering.BlendMode)] _DesBlend("Des Blend",float)=0
    [Enum(Off, 0, On, 1)] _ZWrite ("Z Write", Float) = 1
