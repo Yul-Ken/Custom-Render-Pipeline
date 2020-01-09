@@ -46,7 +46,7 @@ public partial class CameraRenderer
         //---- Setup Camera Properties
         Setup();
 
-        lighting.Setup(context);
+        lighting.Setup(context, cullingResults);
 
         //---- render job ----
         //context are buffered (not draw before submitting)
